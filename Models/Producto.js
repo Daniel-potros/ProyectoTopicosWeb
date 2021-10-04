@@ -1,6 +1,11 @@
-const { Schema } = require('mongoose')
+const { Schema, model } = require('mongoose')
 
-new Schema ({
+const productoSchema = new Schema ({
+    id_producto: String,
     nombre: String,
-    precio: Number
+    precio: Number,
+    tipo: Number,
+    id_gerente: Number
 })
+
+module.exports = model ('Producto', productoSchema)

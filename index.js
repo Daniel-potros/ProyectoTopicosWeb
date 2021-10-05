@@ -4,7 +4,9 @@ const Producto = require('./models/Producto')
 
 const producto = new Producto({
     nombre: 'taco',
-    precio: 20
+    precio: 20,
+    tipo: 1,
+    id_gerente: 1
 })
 
 producto.save((err, document) => {

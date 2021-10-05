@@ -27,9 +27,10 @@ async function getMesero() {
 
     console.log(mesero)
 }
-*/
+
 
 getMesero()
+*/
 
 async function getGerente() {
     const gerente = await Gerente.findOne({usuario: 'gerente123'})

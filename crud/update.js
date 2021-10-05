@@ -8,7 +8,7 @@ const DetalleOrden = require('../Models/DetalleOrden');
 
 
 async function updateProducto() {
-    const producto = await Producto.updateOne({nombre: 'taco'}, {
+    const producto = await Producto.updateOne({nombre: 'birria'}, {
         precio: 25
     }) 
 
@@ -19,7 +19,7 @@ updateProducto()
 
 async function updateOrden() {
     const orden = await Orden.updateOne({fechaOrden: 10/04/2021}, {
-        estado = false
+        estado: false
     })
 
     console.log(orden)
@@ -35,9 +35,10 @@ async function updateMesero() {
 
     console.log(mesero)
 }
-*/
+
 
 updateMesero()
+*/
 
 async function updateGerente() {
     const gerente = await Gerente.updateOne({usuario: 'gerente123'}, {

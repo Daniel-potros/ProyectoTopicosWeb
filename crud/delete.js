@@ -23,23 +23,26 @@ async function deleteOrden() {
 
 deleteOrden()
 
+/*
 async function deleteMesero() {
     const mesero = await Mesero.deleteOne({usuario: 'felipe123'})
 
     console.log(mesero)
 }
 
-/*
+
 deleteMesero()
+*/
 
 async function deleteGerente() {
     const gerente = await Gerente.deleteOne({usuario: 'gerente123'})
 
     console.log(gerente)
 }
-*/
+
 
 deleteGerente()
+
 
 async function deleteDetalleOrden(){
     //const detalle = DetalleOrden.deleteOne()

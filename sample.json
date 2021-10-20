@@ -1,0 +1,15 @@
+[
+    {
+        "nombre": " Taco",
+        "precio": "20",
+        "tipo": "1",
+        "id_gerente": "1"
+    }, 
+    {
+        "nombre": " Pozole",
+        "precio": "30",
+        "tipo": "2",
+        "id_gerente": "2"
+    }
+
+]

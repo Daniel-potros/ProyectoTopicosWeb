@@ -1,22 +1,24 @@
-const express = require("express");
-const router = express.Router();
+const express = require('express');
+const app = express()
 
-router.get('/Producto/:id', (req,res) => {
-    let id = req.params.id;
-    let prod = obtenerProducto(id);
-    res.status(200).json(prod);
-});
+//settings
+app.set('port',3000)
+app.set('json spaces',2)
+app.use(express.urlencoded({extended: true}))
+app.use(express.json()); 
 
-router.get('/Productos/', (req,res) => {
-    let id = req.params.id;
-    let prod = obtenerProducto(id)
-    res.status(200).json(prods)
-    });
-
-router.post('/Producto/', (req,res) => {
-    let p = req.body;
-    let prod = insertarProducto(p)
-    res.status(200).json(prod)
+app.listen(app.get('port'),() => {
+    console.log(`Server on port ${app.get('port')}`)
 })
-module.exports = router;
+
+app.get('/',(req,res) => {
+    res.json({"Title": "Hello world"})
+})
+
+app.use('/api/productos',require('../services/productos.service'))
+app.use('/api/orden',require('../services/orden.service'))
+app.use('/api/mesero',require('../services/mesero.service'))
+app.use('/api/gerente',require('../services/gerente.service'))
+app.use('/api/detalleOrden',require('../services/detalleOrden.service'))
+
 

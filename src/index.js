@@ -16,3 +16,4 @@ app.get('/',(req,res) => {
 })
 
 app.use('/api/productos',require('../services/productos.service'))
+app.use('/api/orden',require('../services/orden.service'))

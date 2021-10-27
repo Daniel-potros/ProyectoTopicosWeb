@@ -1,10 +1,19 @@
+import {Create} from "../crud/create"
 const {Router} = require("express");
 const router = Router();
+
 
 const productos = require('../sample.json')
 console.log(productos)
 
 router.get('/',(req,res) => {
+    res.json(productos)
+})
+
+router.get('/:id',(req,res) => {
+    const {id} = req.params
+    if (Create.crearProducto())
+
     res.json(productos)
 })
 

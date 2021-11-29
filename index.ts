@@ -1,57 +1,42 @@
-import { MongoClient, Db, ObjectId } from "mongodb";
-import { Command } from "commander";
-import CliTable3, { TableConstructorOptions } from "cli-table3";
-
-interface Producto {
-    nombre: String,
-    precio: Number
-}
-
-interface Empleado {
-    nombre: String
-    usuario: String
-    password: String
-    cargo: String
-}
-
-interface Mesero extends Empleado {
-    turno: String
-}
-
-interface Gerente extends Empleado {
-    autorizacion: boolean
-}
-
-interface Orden {
-    cliente: String,
-    mesero: String,
-    productosAdquiridos: Producto[],
-    fechaOrden: String
-    horaOrden: String
-    precioTotalOrden: Number
-    estado: boolean
-}
+import Server from './classes/server';
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser'
+import cors from 'cors'
+import userRoutes from './routes/usuario';
+import ordenRoutes from './routes/Orden';
 
 
-async function getDatabase(): Promise<Db> {
-    // Connection url
-    const url = "mongodb://localhost:27017";
-    // Database Name
-    const dbName = "topicosweb";
-    // Connect using MongoClient
-    const mongoClient = new MongoClient(url);
-    try {
-      const client = await mongoClient.connect();
-      const db = client.db(dbName);
-      return db;
-      // mongoClient.close();
-    } catch (err: any) {
-      console.log(err);
-      process.exit(1);
-    }
-  }
+const server = new Server()
 
-  
+//Configurar CORS
+
+server.app.use(cors({origin: true, credentials: true}));
 
 
-  
+//Body Parser
+server.app.use(bodyParser.urlencoded({extended: true}));
+server.app.use(bodyParser.json());
+
+//Rutas de la ap
+server.app.use('/user', userRoutes);
+server.app.use('/orden',ordenRoutes);
+
+
+
+//Conectando DB
+mongoose.connect('mongodb://localhost:27017/pruebaBD',
+                {useNewUrlParser: true, useUnifiedTopology: true},(err)=>{
+                    
+                    if(err){
+                        throw err;
+                    }
+                     else{
+                         console.log('base de datos conectada');
+                    }
+                });
+
+//Levantando Express
+server.start(()=>{
+    console.log(`Puerto ${server.port}`);
+});
+

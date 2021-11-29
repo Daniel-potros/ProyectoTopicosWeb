@@ -1,32 +1,35 @@
 {
-  "name": "proyectotopicosweb",
+  "name": "elproyectocitlalielproyecto",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node database.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Daniel-potros/ProyectoTopicosWeb.git"
+    "url": "git+https://github.com/JoelLuna/ElProyectoCitlaliElProyecto.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Daniel-potros/ProyectoTopicosWeb/issues"
+    "url": "https://github.com/JoelLuna/ElProyectoCitlaliElProyecto/issues"
   },
-  "homepage": "https://github.com/Daniel-potros/ProyectoTopicosWeb#readme",
+  "homepage": "https://github.com/JoelLuna/ElProyectoCitlaliElProyecto#readme",
   "dependencies": {
-    "cli-table3": "^0.6.0",
-    "colors": "^1.4.0",
-    "commander": "^8.2.0",
-    "config": "^3.3.6",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongodb": "^4.1.2",
-    "mongoose": "^6.0.8"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.8",
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {
-    "typescript": "^4.4.3"
+    "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.6",
+    "@types/mongoose": "^5.11.97"
   }
 }
